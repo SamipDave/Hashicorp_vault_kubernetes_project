@@ -1,0 +1,5 @@
+kubectl exec -n vault -it vault-0 -- vault write auth/kubernetes/role/vault-role \
+  bound_service_account_names="vault-auth" \
+  bound_service_account_namespaces="webapps" \
+  policies="myapp-policy" \
+  ttl="24h"
