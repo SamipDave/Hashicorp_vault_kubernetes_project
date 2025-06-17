@@ -1,0 +1,4 @@
+kubectl exec -n vault -it vault-0 –vault write auth/Kubernetes/config \
+ token_reviewer_jwt=”$TOKEN_REVIEW_JWT” \
+ Kubernetes_host=”$KUBE_HOST” \
+ Kubernetes_ca_cert=”$KUBE_CA_CERT”
