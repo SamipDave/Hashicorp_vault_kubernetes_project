@@ -1,0 +1,8 @@
+# Enable KV v2 secrets engine at path "secret"
+kubectl exec -n vault -it vault-0 -- vault secrets enable -path=secret -version=2 kv
+
+# Store secrets in Vault under secret/mysql
+kubectl exec -n vault -it vault-0 -- vault kv put secret/mysql MYSQL_DATABASE=bankappdb MYSQL_ROOT_PASSWORD=Test@123
+
+# Store secrets in Vault under secret/frontend
+kubectl exec -n vault -it vault-0 -- vault kv put secret/frontend MYSQL_ROOT_PASSWORD=Test@123
